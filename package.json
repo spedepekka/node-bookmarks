@@ -1,0 +1,13 @@
+{
+  "name": "bookmarks",
+  "version": "1.0.0",
+  "description": "This is a project for learning Node.js and API development with it.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

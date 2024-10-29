@@ -2,6 +2,12 @@
 
 This is a project for learning Node.js and API development with it.
 
+## How to run and develop
+
+```
+PORT=3001 node src/index.js
+```
+
 ## Related courses
 
 https://frontendmasters.com/courses/api-design-nodejs-v4
