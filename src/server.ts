@@ -4,6 +4,13 @@ import morgan from 'morgan'
 
 const app = express()
 
+const customLogger = (myenv) => (req, res, next) => {
+    console.log(`${myenv} ${req.method} ${req.path}`)
+    next()
+}
+
+app.use(customLogger('STAGING'))
+
 // Logging
 app.use(morgan('dev'))
 // Client can send JSON
