@@ -46,6 +46,10 @@ Run initial Prisma migration
 npx prisma migrate dev --name init
 ```
 
+## Notes
+
+Morgan is for logging.
+
 
 
 ## Related courses
