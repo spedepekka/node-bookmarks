@@ -6,7 +6,7 @@ const router = Router()
  * User
  */
 router.get('/user', (req, res) => {
-    res.json({ message: 'GET /user' })
+    res.json({ message: req.shh_secret })
 })
 
 router.get('/user/:id', (req, res) => {

@@ -11,6 +11,11 @@ app.use(express.json())
 // Client can send URL encoded data
 app.use(express.urlencoded({ extended: true }))
 
+app.use((req, res, next) => {
+    req.shh_secret = 'doggy'
+    next()
+})
+
 app.get('/', (req, res) => {
     console.log('GET /')
     res.json({ message: 'hello' })
