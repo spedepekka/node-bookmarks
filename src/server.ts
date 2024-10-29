@@ -4,7 +4,12 @@ import morgan from 'morgan'
 
 const app = express()
 
+// Logging
 app.use(morgan('dev'))
+// Client can send JSON
+app.use(express.json())
+// Client can send URL encoded data
+app.use(express.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => {
     console.log('GET /')
