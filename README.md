@@ -16,6 +16,12 @@ Install dev tools
 npm i typescript ts-node @types/node prisma --save-dev
 ```
 
+ts-node has some issues, so let's use `tsx`
+
+```
+npm i -D tsx
+```
+
 Install Prisma client
 
 ```
@@ -25,11 +31,10 @@ npm i @prisma/client --save
 Run
 
 ```
-PORT=3001 node src/index.js
+npm run dev
 ```
 
 Update Prisma references
-
 
 ```
 npx prisma format
