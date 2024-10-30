@@ -2,8 +2,7 @@ import prisma from '../db'
 import { hashPassword, comparePasswords } from '../modules/auth'
 import { createJWT } from '../modules/auth'
 
-export const createNewUser = async (req, res) => {
-  console.log('createNewUser', req.body)
+export const createNewUser = async (req, res, next) => {
   try {
     var user = await prisma.user.findUnique({
       where: {
@@ -11,10 +10,10 @@ export const createNewUser = async (req, res) => {
       }
     })
 
-    if (user) {
+    /*if (user) {
       res.status(401).json({ message: 'username exists' })
       return
-    }
+    }*/
 
     user = await prisma.user.create({
       data: {
@@ -25,8 +24,8 @@ export const createNewUser = async (req, res) => {
     const token = createJWT(user)
     res.json({ token })
   } catch (error) {
-    console.error(error)
-    res.status(400).json({ error: error.message })
+    error.type = 'input'
+    next(error)
   }
 }
 
