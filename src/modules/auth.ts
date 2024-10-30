@@ -6,7 +6,6 @@ export const comparePasswords = (password, hash) => {
 }
 
 export const hashPassword = (password) => {
-  // TODO Generate salt
   return bcrypt.hash(password, 5)
 }
 
