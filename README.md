@@ -46,6 +46,12 @@ Run initial Prisma migration
 npx prisma migrate dev --name init
 ```
 
+Open database explorer
+
+```
+npx prisma studio
+```
+
 ## Notes
 
 Morgan is for logging.
