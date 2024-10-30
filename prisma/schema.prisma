@@ -34,4 +34,6 @@ model Product {
   belongsStoID  String
   belongsTo     User   @relation(fields: [belongsStoID], references: [id])
   status        PRODUCT_STATUS @default(TO_BUY)
+  @@unique([id, belongsStoID])
+  @@unique([name, belongsStoID])
 }

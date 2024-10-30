@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { body, validationResult } from 'express-validator'
 import { handleInputErrors } from './modules/middleware'
+import { getAllProducts, getAllProductsForUser, deleteProduct, createOrUpdate } from './handlers/product'
 
 const router = Router()
 
@@ -24,9 +25,7 @@ router.delete('/user/:id', (req, res) => {})
 /**
  * Product
  */
-router.get('/product', (req, res) => {
-    res.json({ message: 'GET /product' })
-})
+router.get('/product', getAllProducts)
 
 router.get('/product/:id', (req, res) => {})
 
@@ -34,11 +33,9 @@ router.put('/product/:id', body('name').isString(), handleInputErrors, (req, res
     res.json({ message: 'PUT /product' })
 })
 
-router.post('/product', body('name').isString(), handleInputErrors, (req, res) => {
-    res.json({ message: 'POST /product' })
-})
+router.post('/product', body('name').isString(), handleInputErrors, createOrUpdate)
 
-router.delete('/product/:id', (req, res) => {})
+router.delete('/product/:id', deleteProduct)
 
 
 export default router
